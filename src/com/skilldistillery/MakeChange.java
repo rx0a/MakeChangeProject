@@ -21,7 +21,7 @@ public class MakeChange {
 		System.out.println("Enter payment: ");
 		payment = kb.nextDouble();
 		
-		change = payment - cost;
+		change = (payment * 100) - (cost * 100);
 		
 		if (change == 0) {
 			System.out.println("Payment completed.");
@@ -35,7 +35,7 @@ public class MakeChange {
 			calculation(change);
 		}
 		
-		System.out.println("Try again? (y/n)");
+		System.out.println("Another purchase? (y/n)");
 		tryAgain = kb.next();
 		if (tryAgain.equals("y") || tryAgain.equals("Y")) {
 			System.out.println();
@@ -47,61 +47,60 @@ public class MakeChange {
 		while (keepGoing);
 		kb.close();
 	}
-
 	
 	public static void calculation(double change) {
 		
-		System.out.println("Here is your change: ");
+		System.out.println("************************");
+		System.out.println("* Here is your change: *");
 		
-		twenties = (int)(change / 20);
+		twenties = (int)(change / 2000);
 		if (twenties >= 1) {
-			System.out.println("   $20s : [" + twenties + "]");
-			change = change - (twenties * 20);
+			System.out.println("*     $20s : [" + twenties + "]       *");
+			change = change - (twenties * 2000);
 		}
 		
-		tens = (int)(change / 10);
+		tens = (int)(change / 1000);
 		if (tens >= 1) {
-			System.out.println("   $10s : [" + tens + "]");
-			change = change - (tens * 10);
+			System.out.println("*     $10s : [" + tens + "]       *");
+			change = change - (tens * 1000);
 		}
 
-		fives = (int)(change / 5);
+		fives = (int)(change / 500);
 		if (fives >= 1) {
-			System.out.println("   $5s  : [" + fives + "]");
-			change = change - (fives * 5);
+			System.out.println("*     $5s  : [" + fives + "]       *");
+			change = change - (fives * 500);
 		}
 
-		ones = (int)(change / 1);
+		ones = (int)(change / 100);
 		if (ones >= 1) {
-			System.out.println("   $1s  : [" + ones + "]");
-			change = change - ones;
+			System.out.println("*     $1s  : [" + ones + "]       *");
+			change = change - (ones * 100);
 		}
 
-		quarters = (int)(change / 0.25);
+		quarters = (int)(change / 25);
 		if (quarters >= 1) {
-			System.out.println("   $.25s: [" + quarters + "]");
-			change = change - (quarters * 0.25);
+			System.out.println("*     $.25s: [" + quarters + "]       *");
+			change = change - (quarters * 25);
 		}
 		
-		dimes = (int)(change / 0.10);
+		dimes = (int)(change / 10);
 		if (dimes >= 1) {
-			System.out.println("   $.10s: [" + dimes + "]");
-			change = change - (dimes * 0.10);
+			System.out.println("*     $.10s: [" + dimes + "]       *");
+			change = change - (dimes * 10);
 		}
 		
-		nickels = (int)(change / 0.05);
+		nickels = (int)(change / 5);
 		if (nickels >= 1) {
-			System.out.println("   $.05s: [" + nickels + "]");
-			change = change - (nickels * 0.05);
+			System.out.println("*     $.05s: [" + nickels + "]       *");
+			change = change - (nickels * 5);
 		}
 		
-		pennies = (int)(change / 0.01);
-		if (pennies == 2 || pennies == 3) {
-			System.out.println("   $.01s: [" + (pennies + 1) + "]");
+		pennies = (int)(change / 1);
+		if (pennies >= 1) {
+			System.out.println("*     $.01s: [" + pennies + "]       *");
 		}
-		else if (pennies >= 1) {
-			System.out.println("   $.01s: [" + pennies + "]");
-		}
+		System.out.println("************************");
 
 	}
+
 }
