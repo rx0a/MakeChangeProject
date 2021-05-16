@@ -40,8 +40,9 @@ public class MakeChange {
 		if (tryAgain.equals("y") || tryAgain.equals("Y")) {
 			System.out.println();
 		}
-		else {
+		else if (tryAgain.equals("n") || tryAgain.equals("N")) {
 			keepGoing = false;
+			System.out.println("Goodbye!");
 		}
 		}
 		while (keepGoing);
