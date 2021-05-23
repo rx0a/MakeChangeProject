@@ -1,4 +1,4 @@
-# MakeChangeProject
+# Make Change
 
 ### Overview
 
